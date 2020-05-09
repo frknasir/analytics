@@ -26,7 +26,7 @@ class CaptureVisit
         'ip' => $ip,
         'agent' => request()->header('user_agent'),
         'referer' => $this->validUrl((string) request()->header('referer')),
-        'user_id' => request()->user()->id || NULL,
+        'user_id' => auth()->user()->id ?? NULL,
       ];
 
       $event->model->visits()->create($visit_data);
