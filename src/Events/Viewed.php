@@ -1,6 +1,6 @@
 <?php
 
-namespace Starfolk\Analytics\Events;
+namespace StarfolkSoftware\Analytics\Events;
 
 use Illuminate\Database\Eloquent\Model;
 

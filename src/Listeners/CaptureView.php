@@ -23,7 +23,7 @@ class CaptureView
         'ip' => request()->getClientIp(),
         'agent' => request()->header('user_agent'),
         'referer' => $this->validUrl((string) request()->header('referer')),
-        'user_id' => request()->user()->id ?? NULL,
+        'user_id' => auth()->user()->id ?? NULL,
       ];
 
       $event->model->views()->create($view_data);

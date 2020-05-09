@@ -1,13 +1,13 @@
 <?php
 
-namespace StarfolkSoftware\Factchecks\Tests\Models;
+namespace StarfolkSoftware\Analytics\Tests\Models;
 
-use StarfolkSoftware\Factchecks\Traits\HasFactchecks;
+use StarfolkSoftware\Analytics\Traits\{HasViews, HasVisits};
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-  use HasFactchecks;
+  use HasViews, HasVisits;
 
   protected $guarded = [];
 }
