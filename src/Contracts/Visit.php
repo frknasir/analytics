@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphTo};
 
 interface Visit
 {
-  /**
-   * Scope a query to only include visits for the current logged in user.
-   *
-   * @param Builder $query
-   * @return Builder
-   */
-  public function scopeForCurrentUser($query): Builder;
+  public function visitable(): MorphTo;
+
+  public function visitor(): BelongsTo;
 }

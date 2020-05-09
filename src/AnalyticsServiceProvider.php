@@ -35,6 +35,6 @@ class AnalyticsServiceProvider extends ServiceProvider
    */
   public function register()
   {
-    $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'factchecks');
+    $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'analytics');
   }
 }
