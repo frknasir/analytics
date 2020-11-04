@@ -1,10 +1,10 @@
 <?php
 
-namespace StarfolkSoftware\Factchecks\Tests;
+namespace StarfolkSoftware\Analytics\Tests;
 
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Database\Schema\Blueprint;
-use StarfolkSoftware\Factchecks\FactchecksServiceProvider;
+use StarfolkSoftware\Analytics\AnalyticsServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
@@ -19,7 +19,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
   protected function getPackageProviders($app)
   {
     return [
-      FactchecksServiceProvider::class,
+      AnalyticsServiceProvider::class,
     ];
   }
 
@@ -37,9 +37,11 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
 
   protected function setUpDatabase()
   {
-    include_once __DIR__ . '/../database/migrations/create_factchecks_table.php.stub';
+    include_once __DIR__ . '/../database/migrations/create_views_table.php.stub';
+    include_once __DIR__ . '/../database/migrations/create_visits_table.php.stub';
 
-    (new \CreateFactchecksTable())->up();
+    (new \CreateViewsTable())->up();
+    (new \CreateVisitsTable())->up();
 
     $this->app['db']->connection()->getSchemaBuilder()->create('posts', function (Blueprint $table) {
       $table->increments('id');

@@ -100,12 +100,6 @@ $post = Post::find(1);
 $views = $post->views;
 $visits = $post->visits;
 
-// Stats
-$viewStats = Post::viewStats();
-$viewStat = $post->viewStat();
-$visitStats = Post::visitStats();
-$visitStat = $post->visitStat();
-
 ```
 
 ### Testing

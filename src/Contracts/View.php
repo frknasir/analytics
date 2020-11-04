@@ -7,11 +7,7 @@ use Illuminate\Database\Eloquent\Relations\{BelongsTo, MorphTo};
 
 interface View
 {
-  /**
-   * Scope a query to only include views for the current logged in user.
-   *
-   * @param Builder $query
-   * @return Builder
-   */
-  public function scopeForCurrentUser($query): Builder;
+  public function viewable(): MorphTo;
+
+  public function viewer(): BelongsTo;
 }
